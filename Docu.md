@@ -1,12 +1,16 @@
 # API
 
+## Description
+
+Cette application porte sur la gestion de l'inventaire d'une grande chaîne de magasins. L'API fournit des fonctionnalités pour gérer les articles disponibles en magasin, consulter les niveaux de stock, effectuer des ventes, etc.
+
 ## Types de Rôles
 
 - **Administrateur** : Accès complet à toutes les fonctionnalités de l'API, y compris la gestion des utilisateurs, des articles, etc.
 
 - **Gestionnaire** : Peut effectuer des opérations de gestion sur les articles, telles que l'ajout, la modification et la suppression, mais n'a pas nécessairement accès à d'autres fonctionnalités d'administration.
 
-- **Employé du Magasin** : Limité à des actions spécifiques telles que la consultation du stock, la vente d'articles, etc.
+- **Employé du Magasin** : Limité à des actions spécifiques telles que la vente d'articles par exemple.
 
 ## Endpoint :
 
@@ -90,8 +94,8 @@ Récupère le stock disponible dans un magasin spécifique.
 
 - **URL** : index.php/inventory/store/{store_id}/stock
 - **Méthode** : GET
-- **Authentification requise** : Oui (Employé du magasin)
-- **Permissions requises** : Employé du magasin ou Administrateur
+- **Authentification requise** : Oui
+- **Permissions requises** : Administrateur
 
 Réponse en cas de succès :
 
