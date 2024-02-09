@@ -95,7 +95,7 @@ Récupère le stock disponible dans un magasin spécifique.
 - **URL** : index.php/inventory/store/{store_id}/stock
 - **Méthode** : GET
 - **Authentification requise** : Oui
-- **Permissions requises** : Administrateur
+- **Permissions requises** : Employé du Magasin ou Administrateur
 
 Réponse en cas de succès :
 
@@ -188,31 +188,6 @@ Réponse en cas de succès :
 ```json
 {
     "message": "Informations de l'article mises à jour avec succès"
-}
-```
-
-### Vendre un Article
-
-Permet de vendre un certain nombre d'unités d'un article existant.
-
-- **URL** : index.php/inventory/articles/{article_id}/sell
-- **Méthode** : POST
-- **Authentification requise** : Oui (Employé du magasin)
-- **Permissions requises** : Employé du magasin ou Administrateur
-- **Données attendues dans le corps de la requête** :
-
-```json
-{
-    "quantity": 5
-}
-```
-
-Réponse en cas de succès :
-
-```json
-{
-    "message": "Vente effectuée avec succès",
-    "new_stock": 95
 }
 ```
 
