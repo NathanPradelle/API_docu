@@ -67,7 +67,7 @@ Réponse en cas de succès :
 }
 ```
 
-**Code** : `201 Created`
+**Code** : `201`
 
 ### Ajouter du Stock à un Article
 
@@ -128,7 +128,7 @@ Réponse en cas de succès :
 ]
 ```
 
-**Code** : `201 Created`
+**Code** : `201`
 
 ### Rechercher des Articles par Nom ou Catégorie
 
@@ -155,7 +155,7 @@ Réponse en cas de succès:
 ]
 ```
 
-**Code** : `201 Created`
+**Code** : `201`
 
 **Condition** : if category or name is empty
 
@@ -189,7 +189,7 @@ Réponse en cas de succès :
 }
 ```
 
-**Code** : `201 Created`
+**Code** : `201 Deleted`
 
 ### Modifier les Informations d'un Article
 
@@ -218,7 +218,7 @@ Réponse en cas de succès :
 }
 ```
 
-**Code** : `201 Created`
+**Code** : `201 Modified`
 
 **Condition** : if category or name or price is empty
 
@@ -281,7 +281,7 @@ Réponse en cas de succès :
 }
 ```
 
-**Code** : `201 Created`
+**Code** : `201 Deleted`
 
 ### Historique des Ventes
 
@@ -311,7 +311,7 @@ Réponse en cas de succès :
 ]
 ```
 
-**Code** : `201 Created`
+**Code** : `201`
 
 ### Consulter les Stocks (Public)
 
@@ -345,7 +345,7 @@ Réponse en cas de succès :
 }
 ```
 
-**Code** : `201 Created`
+**Code** : `201`
 
 ## Architecture :
 
