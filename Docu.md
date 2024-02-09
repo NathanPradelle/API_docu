@@ -23,7 +23,8 @@ Cette application porte sur la gestion de l'inventaire d'une grande chaîne de m
    - **Authentification requise** : Non
    - **Permissions requises** : Aucune
 
-   **Réponse en cas de succès** :
+   Réponse en cas de succès :
+   
    ```json
    [
        {
@@ -43,6 +44,8 @@ Cette application porte sur la gestion de l'inventaire d'une grande chaîne de m
    ]
 ```
 
+**Code** : `201 Created`
+
 ### Détails d'un Article
 
 Récupère les détails d'un article spécifique.
@@ -52,7 +55,8 @@ Récupère les détails d'un article spécifique.
 - **Authentification requise** : Non
 - **Permissions requises** : Aucune
 
-**Réponse en cas de succès** :
+Réponse en cas de succès :
+
 ```json
 {
     "id": 1,
@@ -63,11 +67,13 @@ Récupère les détails d'un article spécifique.
 }
 ```
 
+**Code** : `201 Created`
+
 ### Ajouter du Stock à un Article
 
 Permet d'ajouter du stock à un article existant.
 
-- **URL** : index.php/inventory/articles/{article_id}/add-stock
+- **URL** : `index.php/inventory/articles/{article_id}/add-stock`
 - **Méthode** : POST
 - **Authentification requise** : Oui (Administrateur ou Gestionnaire)
 - **Permissions requises** : Administrateur ou Gestionnaire
@@ -88,11 +94,19 @@ Réponse en cas de succès :
 }
 ```
 
+**Code** : `201 Created`
+
+**Condition** : if quantity is empty
+
+**Code** : `400 Bad Request`
+
+**Content** : `{ "message": "Quantity should be more than 0" }`
+
 ### Consulter le Stock d'un Magasin
 
 Récupère le stock disponible dans un magasin spécifique.
 
-- **URL** : index.php/inventory/store/{store_id}/stock
+- **URL** : `index.php/inventory/store/{store_id}/stock`
 - **Méthode** : GET
 - **Authentification requise** : Oui
 - **Permissions requises** : Employé du Magasin ou Administrateur
@@ -114,11 +128,13 @@ Réponse en cas de succès :
 ]
 ```
 
+**Code** : `201 Created`
+
 ### Rechercher des Articles par Nom ou Catégorie
 
 Permet de rechercher des articles en fonction de leur nom ou de leur catégorie.
 
-- **URL** : index.php/inventory/articles/search
+- **URL** : `index.php/inventory/articles/search`
 - **Méthode** : GET
 - **Authentification requise** : Non
 - **Permissions requises** : Aucune
@@ -139,11 +155,20 @@ Réponse en cas de succès:
 ]
 ```
 
+**Code** : `201 Created`
+
+**Condition** : if category or name is empty
+
+**Code** : `400 Bad Request`
+
+**Content** : `{ "message": "category and name should have more than 1 character" }`
+
+
 ### Supprimer du Stock d'un Article
 
 Permet de supprimer du stock d'un article existant.
 
-- **URL** : index.php/inventory/articles/{article_id}/remove-stock
+- **URL** : `index.php/inventory/articles/{article_id}/remove-stock`
 - **Méthode** : POST
 - **Authentification requise** : Oui (Administrateur ou Gestionnaire)
 - **Permissions requises** : Administrateur ou Gestionnaire
@@ -164,11 +189,13 @@ Réponse en cas de succès :
 }
 ```
 
+**Code** : `201 Created`
+
 ### Modifier les Informations d'un Article
 
 Permet de modifier les informations d'un article existant.
 
-- **URL** : index.php/inventory/articles/{article_id}
+- **URL** : `index.php/inventory/articles/{article_id}`
 - **Méthode** : PUT
 - **Authentification requise** : Oui (Administrateur ou Gestionnaire)
 - **Permissions requises** : Administrateur ou Gestionnaire
@@ -191,11 +218,20 @@ Réponse en cas de succès :
 }
 ```
 
+**Code** : `201 Created`
+
+**Condition** : if category or name or price is empty
+
+**Code** : `400 Bad Request`
+
+**Content** : `{ "message": "category and name and price shouldn't be empty" }`
+
+
 ### Ajouter un Nouvel Article
 
 Permet d'ajouter un nouvel article à l'inventaire.
 
-- **URL** : index.php/inventory/articles
+- **URL** : `index.php/inventory/articles`
 - **Méthode** : POST
 - **Authentification requise** : Oui (Administrateur ou Gestionnaire)
 - **Permissions requises** : Administrateur ou Gestionnaire
@@ -220,11 +256,19 @@ Réponse en cas de succès :
 }
 ```
 
+**Code** : `201 Created`
+
+**Condition** : if category or name or price or stock is empty
+
+**Code** : `400 Bad Request`
+
+**Content** : `{ "message": "category and name and price and stock shouldn't be empty" }`
+
 ### Supprimer un Article
 
 Permet de supprimer un article de l'inventaire.
 
-- **URL** : index.php/inventory/articles/{article_id}
+- **URL** : `index.php/inventory/articles/{article_id}`
 - **Méthode** : DELETE
 - **Authentification requise** : Oui (Administrateur)
 - **Permissions requises** : Administrateur
@@ -237,11 +281,13 @@ Réponse en cas de succès :
 }
 ```
 
+**Code** : `201 Created`
+
 ### Historique des Ventes
 
 Permet de consulter l'historique des ventes pour un article spécifique.
 
-- **URL** : index.php/inventory/articles/{article_id}/sales-history
+- **URL** : `index.php/inventory/articles/{article_id}/sales-history`
 - **Méthode** : GET
 - **Authentification requise** : Oui (Administrateur ou Gestionnaire)
 - **Permissions requises** : Administrateur ou Gestionnaire
@@ -264,6 +310,42 @@ Réponse en cas de succès :
     }
 ]
 ```
+
+**Code** : `201 Created`
+
+### Consulter les Stocks (Public)
+
+Permet aux clients de consulter les stocks disponibles dans tous les magasins.
+
+- **URL** : `index.php/inventory/stocks`
+- **Méthode** : GET
+- **Authentification requise** : Non
+- **Permissions requises** : Aucune
+
+Réponse en cas de succès :
+
+```json
+{
+    "store_id": 1,
+    "store_name": "Nom du Magasin",
+    "stocks": [
+        {
+            "article_id": 1,
+            "name": "T-shirt",
+            "category": "Vêtements",
+            "stock": 100
+        },
+        {
+            "article_id": 2,
+            "name": "Laptop",
+            "category": "Électronique",
+            "stock": 50
+        }
+    ]
+}
+```
+
+**Code** : `201 Created`
 
 ## Architecture :
 
